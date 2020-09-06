@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			var obj = {
+				name:'zs',
+				age:18,
+				sex:'男',
+				getCar:function(){
+					return 'hello'
+				}
+			}
+			
+			// 增加
+			obj.setName = function () {
+				return 'word'
+			}
+			
+			// 只能删除对象  里面  的某一个属性
+			delete obj.name
+
+			//修改对象 里面 的属性
+			obj.name = 'ls'
+			
+			//查看
+			console.log(obj) 
+			console.log(obj.getCar())
+			console.log(obj.setName())
+			
+			//清空对象
+			obj = {}
+			obj = null
+			console.log(obj)
+			
+		</script>
+	</body>
+</html>

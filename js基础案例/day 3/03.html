@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+      var flag = parseInt(prompt('请输入内容  输入 1-7'));
+        console.log(flag);
+
+        switch (flag) {        //flag===case  进行比较  ===全等   值和数字类型都要相同
+            case 1:
+                console.log('星期一');
+                // break;                //如果没有break   就穿透
+            case 2:
+                console.log('星期二');
+                // break;
+            case 3:
+                console.log('星期三');
+                // break;
+            case 4:
+                console.log('星期四');
+                // break;
+            case 5:
+                console.log('星期五');
+                // break;
+            case 6:
+                console.log('星期六');
+                break;
+            case 7:
+                console.log('星期天');
+                break;
+
+            default:              //其他上面所有的条件都不满足  就走 default
+                console.log('地球上没有星期8');
+        }
+
+
+
+
+    </script>
+</body>
+</html>

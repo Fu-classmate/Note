@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			var a = 10  //全局作用域 任何地方都可以访问到
+			
+			function fn() {
+				//在函数内部声明的变量  叫局部变量
+				var b = 30  //这里是局部作用域 也叫函数作用域
+				
+			}
+			
+			var  //声明变量  //在函数内部 如果不使用var  声明的变量就是全局变量
+			function fu2(){
+				msg = '未知变量'
+				console.log(msg)
+			}
+			console.log(msg)
+			
+		</script>
+	</body>
+</html>

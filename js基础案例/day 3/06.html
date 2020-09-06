@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        // 循环的本质
+        // 第一步  先走 var i=1;   接着走   i<=3 是否成立 如果不成立了 立马结束循环
+        // 如果成立 先走 { } 里面的代码  走完后 再走 i++   i==2  接着判断 i<=3 是否成立 
+        // 如果成立 接着执行{} 里面所有的代码   在走i++  i==3   接着判断i<=3  是否 成立
+        // 如果成立  接着走{} 里面所有的代码    再继续走   i++  i==4  接着判断 i<=3 是否成立 
+        // 现在 i==4  i<=3  不成立 立马结束循环    
+        // 此时 i==4
+
+
+
+        //死循环  无限循环下去
+
+        // for(var i=1;i>0;i++) {
+        //     console.log(i)
+        // }
+
+
+
+        //  循环不走  没有输入结果
+
+        for (var i = 1; i > 1; i++) {
+            console.log(i)
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        //   for(var i=10;i<=20;i--) {
+        //       console.log(i)     10  --> 负无限
+        //   }
+
+
+
+
+
+        for (var i = 10; i <= 20; i--) {
+            if (i % 2 == 0) {
+                i += 3;
+                console.log(i)
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

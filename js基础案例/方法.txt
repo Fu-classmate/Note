@@ -1,0 +1,62 @@
+Math对象
+
+	Math.PI()                    	圆周率 
+	Math.random()        	生成随机数 
+	Math.floor() / Math.ceil()    	向下取整/向上取整 
+	Math.round()                	取整，四舍五入 
+	Math.abs()                  	绝对值 
+	Math.max() / Math.min()        	求大和小值
+	Math.sin() / Math.cos()        	正弦/余弦 
+	Math.power() / Math.sqrt()     	求指数次幂/求平方根
+
+Data对象
+
+	getTime()     		返回毫秒数和valueOf()结果一样
+	valueOf()			内部调用的getTime() 
+	getMilliseconds() 
+	getSeconds()  		返回0-59 
+	getMinutes()  		返回0-59 
+	getHours()    		返回0-23 
+	getDay()      		返回星期几 0周日   6周6 
+	getDate()     		返回当前月的第几天 
+	getMonth()    		返回月份，***从0开始*** 
+	getFullYear() 		返回4位的年份  如 2016
+
+Array对象
+
+	pop()       		取出数组中的最后一项，修改length属性 
+	shift()     		取出数组中的第一个元素，修改length属性 
+	unshift()   	在数组前面插入项，返回数组的长度 
+	reverse()   	翻转数组 
+	sort();     		即使是数组sort也是根据字符，从小到大排序 
+	concat()    	把参数拼接到当前数组 
+	slice()     		从当前数组中截取一个新的数组，不影响原来的数组，参数start从0开始,end从1开始 
+	splice()    		删除或替换当前数组的某些项目，参数start, deleteCount, options(要替换的项目) 
+	indexOf()		查找自身在数组的位置 如果没找到返回-1 
+	lastIndexOf()   	查找自身在数组的位置 如果没找到返回-1 
+	every()		迭代方法 不会修改原数组
+	filter()		迭代方法 不会修改原数组
+	forEach()		迭代方法 不会修改原数组
+	map()		迭代方法 不会修改原数组
+	some() 		迭代方法 不会修改原数组
+	join()		字符串连接
+
+String对象
+	
+	charAt()        	获取指定位置处字符 
+	charCodeAt()    	获取指定位置处字符的ASCII码 
+	str[0]          	HTML5，IE8+支持 和charAt()等效
+	concat()        	拼接字符串，等效于+，+更常用
+	slice()         	从start位置开始，截取到end位置，end取不到 
+	substring()     	从start位置开始，截取到end位置，end取不到 
+	substr()        	从start位置开始，截取length个字符 
+	indexOf()       	返回指定内容在元字符串中的位置 
+	lastIndexOf()  	从后往前找，只找第一个匹配的
+	trim()          	只能去除字符串前后的空白 
+	to(Locale)UpperCase() 	转换大写 
+	to(Locale)LowerCase() 	转换小写
+	search() 
+	replace() 
+	split() 
+	fromCharCode()
+	String.fromCharCode 	把ASCII码转换成字符串

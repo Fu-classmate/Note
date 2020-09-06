@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			// 对象 汽车
+			// 特征:红色 四个轮子  属性
+			// 行为: 驾驶 刹车  方法 -- 函数
+
+			// var obj1 = {}  这是一个空对象 自变量空对象 最常用
+			// var  obj2 = new Object()  //这也是一个空对象
+
+			var car = {
+				name: '奔奔',
+				color: 'red',
+				num: 4,
+				run: function() {
+					console.log('我可以跑')
+				},
+				stop: function() {
+					console.log('我也可以刹车')
+				}
+			}
+			
+			// 取对象里面的属性:  对象名.属性名  对象名[属性名]
+			console.log(car.name)
+			console.log(car['color'])  //这个属性是固定的就加 ''  这个属性是一个变量就不加引号
+			
+			//取对象里面的行为  或者叫方法
+			// 对象名.方法名
+			car.run()
+
+		</script>
+	</body>
+</html>

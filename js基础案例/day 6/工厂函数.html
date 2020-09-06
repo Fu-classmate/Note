@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			// 工厂函数创建
+			function create(name,age,sex) {
+				var person = new Object()
+				person.name = name
+				person.age = age
+				person.sex = sex
+				person.setName = function () {
+					console.log(this.name)
+				}
+				return person
+			}
+			
+			var swk = create('孙悟空',20,'男')
+			var zbj = create('猪八戒',19,'男')
+			var swj = create('沙和尚',18,'男')
+			swk.setName()
+			zbj.setName()
+			swj.setName()
+			console.log(swk)
+			console.log(zbj)
+			console.log(swj)
+		</script>
+	</body>
+</html>

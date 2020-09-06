@@ -1,0 +1,19 @@
+	parseInt   			取整
+	prompt    		输入弹框
+	confirm			确认和取消的弹框
+	parseFloat		浮点数
+	switch……case          	判断语句
+	break			判断层结束语句
+	default			同else一样 全部不符合
+	while			第一种循环
+	do……while		第二种循环
+	for			第三种循环
+	break			跳出循环
+	continue			跳出本次
+	onmouserover  		鼠标移入
+	onkeydown		按键被按下
+	onchange			域内容改变
+	setTimeout		定时器（执行一次）
+	setInterval		定时器 （一直执行）
+	clearinterval		清除定时器
+	arguments		函数伪数组

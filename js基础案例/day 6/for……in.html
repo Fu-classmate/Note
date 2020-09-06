@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			// 遍历对象
+			var obj = {
+				name:'zs',
+				age:18,
+				sex:'男',
+				getCar:function(){
+					console.log('hello word')
+				}
+			}
+			
+			//key 可以随便写  obj对象名字
+			for(var key in obj){
+				//console.log(key)  取键
+				//console.log(obj[key])  取值
+			}
+			//只能单独调用
+			obj.getCar() 
+			
+		</script>
+	</body>
+</html>

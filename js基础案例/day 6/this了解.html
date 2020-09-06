@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			var zsf = new Object()
+			zsf.name = ['zsf', '张三丰']
+			zsf.age = 101
+			zsf.gongfu = function() {
+				console.log(zsf.name[1] + '打太极')
+			}
+			zsf.sayHi = function() {
+				console.log(this.name[1] + '说你好', this.age + '还是一个大叔')
+			}
+			//this 这个 js 指向当前函数执行的对象
+
+			zsf.gongfu()
+			zsf.sayHi()
+		</script>
+	</body>
+</html>

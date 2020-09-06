@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Document</title>
+	</head>
+
+	<body>
+		<script>
+			//   1  求10-20之间的随机整数
+			//   2  随机生成颜色RGB
+
+			// var random=Math.random()    //  [0,1)
+			//  [0,1)*(20-10)  0.1*10         0.99*10  9.9    [0,10)
+			//  [0,9]
+
+			// var  one= Math.floor(   Math.random()*(15-10+1))+10;
+			// console.log(one)
+
+			function getRandom(min, max) {
+				var get_val = Math.floor(Math.random() * (max - min + 1)) + min;
+				console.log(get_val)
+				return get_val
+			}
+			getRandom(10, 20)
+
+
+			getColor()
+		</script>
+	</body>
+
+</html>

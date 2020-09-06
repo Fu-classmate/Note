@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<button id='btn'>按钮</button>
+		<script>
+			
+			// 通过 + 字符串拼接
+			// es5
+			var a = 'zs'
+			var str = a + 'zs'
+
+			// es6
+			var a = 'zs'
+			var str = `${a}你好帅`
+
+			var times
+			times = setInterval(get,1000)
+			function get() {
+				var red = Math.random() * 255
+				var green = Math.random() * 255
+				var blue = Math.random() * 255
+				document.body.style.backgroundColor = `rgb(${red},${green},${blue})`
+			}
+			
+			var flas = true
+			btn.onclick = function () {
+				flas ?  clearInterval(times) : times = setInterval(get,1000)
+				flas = !flas
+			}
+		</script>
+	</body>
+</html>
