@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id='Box'>我是div</div>
+		<input type='button' value='开灯' id='int'/>
+		<script>
+			var btn = document.getElementById('int')
+			
+			document.body.style.transition = 'all .8s ease .3s'
+			
+			var item = true
+			btn.onclick = function () {
+				if (item){
+					document.body.style.backgroundColor = 'black'
+					int.value = '点击开灯'
+					item = false
+				} else {
+					document.body.style.backgroundColor = 'white'
+					int.value = '点击关灯'
+					item = true
+				}
+			}
+ 			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<input type='text' placeholder = '输点啥呢' id = 'text'/>
+		<input type='password' id = 'pwd'/>
+		<script>
+			// 事件 focus blur
+			// focus  获取焦点   blur  失去焦点
+			
+			var text = document.getElementById('text')
+			text.onfocus = function () {
+				text.style.width = '200px'
+				text.style.height = '200px'
+				text.style.fontSize = '50px'
+				text.placeholder = '尽情修改吧'
+			}
+			text.onblur = function () {
+				text.style.width = ''
+				text.style.height = ''				
+				text.style.fontSize = ''
+				text.placeholder = '输点啥呢'
+			}
+		</script>
+	</body>
+</html>

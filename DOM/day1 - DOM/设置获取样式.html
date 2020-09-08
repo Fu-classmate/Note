@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id='box' style='color:red;'>我是div</div>
+		<script>
+			var box = document.getElementById('box')
+
+			// style  表达式  含所有的样式
+			// 用js 去给元素设置样式的时候 background-color ==>  backgroundColor
+
+			// 能设置样式    一定要加   '='
+			// box.style.color = 'green'
+
+			// 能获取样式  直接写   但是只能获取行内样式
+			var col = box.style.color;
+			console.log(col)
+		</script>
+	</body>
+</html>

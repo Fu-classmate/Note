@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id='btn'>aaaa</div>
+		<script>
+			// var btn = document.getElementById('id的名字')  获取id
+
+			// on 绑定的意思  click 点击的意思
+
+			// 1.找人
+			var btn = document.getElementById('btn')
+
+			// 2.绑定事件
+			btn.onclick = function() {
+
+				// 3.具体要做什么事
+				alert(this + '点击了我')
+			}
+		</script>
+	</body>
+</html>
