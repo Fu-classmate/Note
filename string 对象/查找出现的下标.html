@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			// 找到数组中每一个a出现的位置
+			var myindex = -1
+			var newArr = [];
+			var arr = ["c", "a", "z", 'a', "a", "x", 'c', "a", 'a', 'a'];
+			do {
+				// myindex = -1  初始为-1表示通过 myindex+1 后的第0项
+				// myindex+1 表示从某一下开始往后查找
+				myindex = arr.indexOf('a', myindex + 1);
+				if (myindex != -1) {
+					newArr.push(myindex)
+				}
+				console.log(myindex)
+			} while (myindex != -1) //当条件不满足时结束循环
+			console.log(newArr)
+		</script>
+	</body>
+</html>

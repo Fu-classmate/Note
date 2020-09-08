@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			// 将一个字符串数组的元素的顺序进行反转。
+			// ["a", "b", "c", "d"] -> [ "d","c","b","a"]。使用两种种方式实现。
+			// 提 示：第i个和第length-i-1个进行交换
+
+			//第一种方式
+			var newArr=[];
+			var  arr=["a", "b", "c", "d"];
+			for(var i=arr.length-1;i>=0;i--) {
+				//数组倒着循环 然后在最后插入新数组
+			   newArr.push(arr[i])
+			}
+			console.log(newArr)
+
+			//第二种方式
+			// reverse() 方法用于颠倒数组中元素的顺序。
+			// var arr = ["a", "b", "c", "d"];
+			// var newstr = arr.reverse();
+			// console.log(newstr)
+		</script>
+	</body>
+</html>

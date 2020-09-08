@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			// 编写一个方法去掉一个数组的重复元素
+			var arr = ['c', 'a', 'z', 'a', 'x', 'a', 'z'];
+			var newArr = [];
+
+			for (var i = 0; i < arr.length; i++) {
+				// 进行判断 判断新数组中是否存在
+				// 若存在这判断返回下标大于零
+				// 若不存在则返回 - 1 并添加进新数组
+				if (newArr.indexOf(arr[i]) < 0) {
+					newArr.push(arr[i])
+				}
+			}
+			console.log(newArr) //['c','a','z','x']
+		</script>
+	</body>
+</html>

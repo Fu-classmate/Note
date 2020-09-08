@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			/* 
+				indexOf() LastIndexOf()
+				如果没找到就返回-1 如果找到就返回当前这个元素的索引值
+				默认是从第一个找 如果找到了就返回第一个 后面不继续找了
+				
+				join()
+				将数组的所有元素连接到一个字符串中
+				把数组变成字符串
+			 */
+			
+			var arr = ['篮球','足球','排球','地球' ,'篮球']
+			// indexOf 从开始找
+			var index = arr.indexOf('篮球')
+			console.log(index)   //返回 0
+			
+			//lastIndexOf 从后面开始往前找
+			var index = arr.lastIndexOf('篮球')
+			console.log(index)   //返回 4
+			
+			var str = arr.join('|')
+			console.log(str) //'篮球|足球|排球|地球|篮球'
+		</script>
+	</body>
+</html>

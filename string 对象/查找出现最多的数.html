@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			// 查找出现最多次数
+			var s = 'abacoefoxyozzoppppppp';
+			var obj = {};
+			for (var i = 0; i < s.length; i++) {
+				var chart = s.charAt(i); 
+
+				// obj[chart] ==  obj['a']   向obj对象中添加属性
+				// 判断如果是相同的则加 1 如果只有1个则为 1
+				if (obj[chart]) {  //循环计算是否出现
+					obj[chart]++   //出现第二次后 加加
+				} else {  //如果循环遍历时为出现 便给其赋值为 1
+					obj[chart] = 1
+				}
+
+				// 三元表达式
+				// obj[chart] ? obj[chart]++ : obj[chart] = 1;
+			}
+			console.log(obj)  //{ a: 2, b: 1, c: 1, o: 4, e: 1, f: 1, x: 1, y: 1, z: 2, p: 4 }
+
+			var max = 0;
+			var maxKey;
+
+			// 遍历对象 取出属性值 进行比较
+			for (var key in obj) {
+				if (obj[key] > max) {
+					maxKey = key
+					max = obj[key]
+				}
+			}
+			console.log('次数为:'+ max + '---' + '最大的属性为:' + maxKey)  //次数为:7---最大的属性为:p
+		</script>
+	</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			// trim() 去除左右两边空白
+			var s = "        我爱中华 人民  共和国      ";
+			var newstr = s.trim()
+			console.log(newstr)  //我爱中华 人民  共和国
+			
+			//substr() 截取字符串'我爱中华人民共和国' 中的'中华'  
+			var s = '我爱中华人民共和国'
+			var newStr = s.substr(2,2)
+			console.log(newStr)  // '中华'
+			
+			
+			//大小写转换方法
+			// to(Locale)UpperCase() //转换大写
+			// to(Locale)LowerCase() //转换小写
+			var str='abc';
+			var newStr=str.toLocaleUpperCase();
+			console.log(newStr);  //ABC
+			
+			//search() 查找 查找为双数 找不到则返回-1
+			var s = '我爱中华人民共和国'
+			var newStr = s.search('中华')
+			console.log(newStr)   //2
+			
+			//replace()  正则
+			// replace('第一个参数需要的字符','替换需要换的字符的结果') //正则
+			var s1 = "我爱中华人民共和国 中华万岁";
+			var newStr = s1.replace(/中华/g, '华夏');
+			// g 表示贪婪模式 也就是全局匹配 替换所有的   默认情况只找第一个匹配到的  
+			// 表示正则   里面的文字不需要加引号
+			console.log(newStr)  //我爱华夏人民共和国 华夏万岁
+			
+			//join()   把数组变成字符串
+			// split()  可以字符串变成数组  //写成空字符串
+			//  var s1 = "我-爱-中-华-人-民共和国, xxxxxx";
+			//  var  newArr=s1.split('-');
+			//  console.log(newArr)
+			var s1 = "我爱中华人民共和国";
+			var newArr = s1.split('');
+			console.log(newArr)
+			
+			
+		</script>
+	</body>
+</html>
