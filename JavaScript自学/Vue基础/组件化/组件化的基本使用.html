@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<cpn></cpn>
+			<cpn></cpn>
+			<cpn></cpn>
+		</div>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<script>
+			// 1.创建 Vue.extend() 组件构造器
+			const cpnC = Vue.extend({
+				//template:模板 
+				template:`<div>
+										<p>组件化的基本使用</p>
+										<p>关键字：extend,tamplate</p>
+									</div>`
+			})
+			
+			//2.Vue.component()注册组件。两个参数：1.注册组件的标签名 2.组件构造器
+			Vue.component('cpn',cpnC)
+			
+			
+			var app = new Vue({
+				el:'#app',
+				data:{
+					
+				}
+			})
+		</script>
+	</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<cpn>
+				<h1 slot="left">通过具名插槽可以指定更改对应插槽，例如：现在更改的是name为left的插槽</h1>
+				<h1 slot="center">需要注册组件</h1>
+			</cpn>
+		</div>
+		<template id="cpn">
+			<div>
+				<slot name="left">左边</slot>
+				<slot name="center">中间</slot>
+				<slot name="right">右边</slot>
+			</div>
+		</template>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<script>
+			var app = new Vue({
+				el:'#app',
+				data:{
+					
+				},
+				components:{
+					cpn:{
+						template:'#cpn'
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>定位方法</title>
+		<style>
+			* {
+				margin: 0px;
+				padding: 0px;
+			}
+
+			body {
+				height: 100%;
+				overflow: hidden;
+			}
+
+			#box {
+				box-sizing: border-box;
+				width: 100px;
+				height: 50px;
+				line-height: 48px;
+				text-align: center;
+				font-size: 16px;
+				background: lightblue;
+			}
+
+			/* 第一种方式  定位的方式 */
+			
+			/* 相对于左上角居中 需要减去盒子宽和高的一半 */
+			/* 缺点:需要 知道 垂直居中的盒子自身的 宽 和 高 */
+			#box {
+				position: absolute;
+				top:50%;
+				left:50%;
+				margin-left:-50px;
+				margin-top: -25px;
+			}
+		</style>
+	</head>
+	<body>
+		<div style="width: 800px;height: 500px;position: relative;border: 1px solid #FF0000;margin: 0 auto;">
+			<div id="box">
+				垂直居中
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			*{
+				margin: 0px;
+				padding: 0px;
+			}
+			table{
+				border: 1px solid #FF0000;
+				border-collapse: collapse;
+				border-spacing: 0;
+			}
+			th, td{
+				padding:8px 16px;
+				border: 1px solid #FF0000;
+				text-align: center;
+			}
+			th{
+				background-color: #fff;
+				color: aquamarine;
+				font-weight: 600;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="app">
+			<div v-if="massage.length">
+				<table>
+					<thead>
+						<tr>
+							<th></th>
+							<th>名称</th>
+							<th>出版日期</th>
+							<th>价格</th>
+							<th>购买数量</th>
+							<th>数量</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr v-for="(n,index) in massage">
+							<td>{{n.id}}</td>
+							<td>{{n.name}}</td>
+							<td>{{n.year}}</td>
+							<td>{{showPic(n.pic)}}</td>
+							<td>
+								<button @click="Reduce(index)" :disabled=' n.conter<= 1'>-</button>
+								{{n.conter}}
+								<button @click="Plus(index)">+</button>
+							</td>
+							<td><button @click="Delete(index)">删除</button></td>
+						</tr>
+					</tbody>
+				</table>
+				<h2>总价格为：{{Sum}}</h2>
+			</div>
+			<h2 v-else>购物车为空</h2>
+		</div>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<script>
+			var app = new Vue({
+				el:'#app',
+				data:{
+					massage:[
+						{id:'1' , name:'哈利波特1' , year:'1999年1月1日' , pic:15 , conter:'1'},
+						{id:'2' , name:'哈利波特2' , year:'1999年1月1日' , pic:16 , conter:'1'},
+						{id:'3' , name:'哈利波特3' , year:'1999年1月1日' , pic:17 , conter:'1'},
+						{id:'4' , name:'哈利波特4' , year:'1999年1月1日' , pic:18 , conter:'1'},
+						{id:'5' , name:'哈利波特5' , year:'1999年1月1日' , pic:19 , conter:'1'}
+					]
+				},
+				methods:{
+					showPic(pic){	
+						return '￥' + pic.toFixed(2)
+					},
+					Reduce(index){
+						this.massage[index].conter--
+					},
+					Plus(index){
+						this.massage[index].conter++
+					},
+					Delete(index){
+						this.massage.splice(index,1)
+					}
+				},
+				computed:{
+					Sum(){
+						let result = 0
+						for(let i=0;i<this.massage.length;i++){
+							result += this.massage[i].pic * this.massage[i].conter
+						}
+						return result
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<!-- v-model获取value -->
+			
+			<p>使用v-model实现双向绑定</p>
+			<input type="text" v-model="massge" />
+			<h2>{{massge}}</h2>
+			
+			<!-- 等同于 -->
+			
+			<p>使用v-bind和v-on结合使用，通过事件中 event 实现双向绑定</p>
+			<input type="text" v-bind:value="massge" v-on:input="ValueChange"/>
+			
+			<!-- 等同于 -->
+			
+			<p>使用v-bind和v-on结合使用，通过事件中 event 实现双向绑定 不使用方法直接绑定</p>
+			<input type="text" v-bind:value="massge" v-on:input="massge = $event.target.value"/>
+			
+			<!-- v-model 是一个语法糖。背后的本质是包括两个操作：
+				1.v-bind绑定一个value属性
+				2.v-on指令给当前元素绑定input事件 -->
+		</div>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<script>
+			var app = new Vue({
+				el:'#app',
+				data:{
+					massge:'v-model双向绑定'
+				},
+				methods:{
+					ValueChange(event){
+						this.massge = event.target.value
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

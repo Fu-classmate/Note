@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			#app .active{
+				color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="app">
+			<ul>
+				<li v-for="(n,index) in massge" :class="{active: isindex == index}" @click="liClick(index)">
+					{{index}}.{{n}}
+				</li>
+			</ul>
+		</div>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<script>
+			var app = new Vue({
+				el:'#app',
+				data:{
+					massge:['通过v-for中的元素和下标循环遍历','定义初始属性值动态绑定下标','通过v-on动态添加点击事件并将index参数传入','最后同步初始属性和index绑定'],
+					isindex:0
+				},
+				methods:{
+					liClick(index){
+						this.isindex = index
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

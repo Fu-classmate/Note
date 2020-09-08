@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<!-- 方法一 直接拼接（语法过于繁琐）-->
+			<h2>{{firstName + ' ' +latName}}</h2>
+
+			<!-- 方法二  直接拼接-->
+			<h2>{{firstName}} {{latName}}</h2>
+			
+			<!-- 方法三 通过定义methods拼接-->
+			<h2>{{getfullName()}}</h2>
+			
+			<!-- 方法四 computed拼接-->
+			<h2>{{fullName}}</h2>
+		</div>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<script>
+			var app = new Vue({
+				el: '#app',
+				data: {
+					// 拼接方法一，二
+					firstName: 'lerbon',
+					latName: 'james'
+				},
+				// 拼接方法三 methods
+				methods:{
+					getfullName:function() {
+						return this.firstName + ' ' + this.latName
+					}
+				},
+				// 拼接方法四 计算属性
+				computed:{
+					fullName:function(){
+						return this.firstName + ' ' + this.latName
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

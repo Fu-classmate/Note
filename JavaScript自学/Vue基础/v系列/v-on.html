@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+		</style>
+	</head>
+	<body>
+		<div id="app">
+			<!-- v-on语法糖 直接用 @ 代替-->
+			<h3>{{counter}}</h3>
+			<button v-on:click="increment">+</button>
+			<button @click="decrement">-</button>
+		</div>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<script>
+			var app = new Vue({
+				el: '#app',
+				data: {
+					counter: '0'
+				},
+				methods: {
+					increment() {
+						this.counter++
+					},
+					decrement() {
+						this.counter--
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

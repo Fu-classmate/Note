@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			console.log('-----------原型练习-------------')
+			var sum = function (name, age){
+				this.name = name
+				this.age = age
+				this.showName = function (){
+					console.log('你好')
+				}
+			}
+			sum.prototype.c = function (a, b){
+				return a + b
+			}
+			sum.prototype.b = function (a, b){
+				return a * b
+			}
+			var sumP = new sum()
+			console.log(sumP.c(1,2))
+			console.log(sumP.b(1,2))
+			sumP.showName()
+			
+			console.log('-----------原型组合模式-------------')
+			function Person(name, age){
+				this.name = name
+				this.age = age
+				this.showName = function (){
+					console.log('你好')
+				}
+			}
+			Person.prototype = {
+				constructor:Person,
+				sayName:function(){
+					console.log(this.name)
+				}
+			}
+			
+			var p1 = new Person('这个是p1','18')
+			var p2 = new Person('这个是p2','28')
+			console.log(p1)
+			console.log(p2)
+			p1.sayName()
+			p2.sayName()
+			
+			console.log('-----------浅拷贝-------------')
+			var obj = {
+					a:100,
+					b:[10,20,30],
+					c:{
+						name:'FU'
+					},
+					d:/^\d+&/
+				}
+			var obj2 = {}
+
+			for(let key in obj){
+				if(!obj.hasOwnProperty(key)) break
+				obj2[key] = obj[key]
+			}
+			console.log(obj, obj2)
+			
+			console.log('-----------深拷贝-------------')
+			function deepClone(obj){
+				//判断传入类型  过滤
+				if(obj === null) return null
+				if(typeof obj !== 'object') return obj
+				if(obj instanceof RegExp){
+					//创建新正则地址
+					return new RegExp(obj)
+				}
+				
+				//不能创建空对象的目的：克隆的结果和之前保持相同的	所属类
+				var newObj = new obj.constructor
+				for(let key in obj2){
+					if(!obj2.hasOwnProperty(key)) break
+					
+					//递归自调用
+					newObj[key] = deepClone(obj[key])
+				}
+				return newObj
+			}
+			//把obj当形参传入
+			var obj3 = deepClone(obj)
+
+			//若不相等则说明深克隆成功
+			console.log(obj3, obj )
+			console.log(obj3 === obj)
+			console.log(obj3.c === obj.c)
+		</script>
+	</body>
+</html>

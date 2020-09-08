@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			*{margin: 0;padding: 0;}
+			div{width: 100px;height: 100px;background-color: #FF0000;margin: 50px;}
+		</style>
+		<script>
+			window.onload = function () {
+				var div = document.getElementsByTagName("div");
+				div[0].onclick = function () {
+					//点击更改高度
+					Move(this, "height", 300)
+				}
+				div[1].onclick = function () {
+					//点击更改宽度
+					Move(this, "width", 300)
+				}
+				div[2].onclick = function () {
+					//点击更改margin
+					Move(this, "margin", 100)
+				}
+				div[3].onclick = function () {
+					//点击更改文字颜色
+					Move(this, "fontSize", 50)
+				}
+			}
+			
+			function Move(node, attr, iTarget) {
+				clearInterval(node.timer)
+				node.timer = setInterval(function(){
+					var icur = parseInt(Style(node, attr))
+					var span = (iTarget - icur) / 8
+					span = span > 0 ? Math.ceil(span) : Math.floor(span)
+					if (icur == iTarget) {
+						clearInterval(node.timer)
+					}else{
+						node.style[attr] = icur + span + 'px'
+					}
+				},30)
+			}
+			function Style(node, cssStr){
+				return node.currentStyle ? node.currentStyle[cssStr] : getComputedStyle(node)[cssStr];
+			}
+		</script>
+	</head>
+	<body>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div>文本</div>
+	</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			* {
+				padding: 0;
+				margin: 0;
+			}
+
+			#div2 {
+				width: 882px;
+				height: 220px;
+				border: 1px solid black;
+				margin: 100px auto;
+				position: relative;
+				overflow: hidden;
+			}
+
+			#ul2 {
+				position: absolute;
+				left: 0px;
+			}
+
+			#ul2 li {
+				list-style: none;
+				width: 200px;
+				height: 200px;
+				margin: 10px;
+				float: left;
+				font-size: 30px;
+				text-align: center;
+				line-height: 200px;
+			}
+		</style>
+		<script>
+			window.onload = function() {
+				var oUl2 = document.getElementById('ul2')
+				var oDiv2 = document.getElementById('div2')
+
+				//直接把四张图在添加末尾
+				oUl2.innerHTML += oUl2.innerHTML
+
+				//重新设置ul的宽度
+				oUl2.style.width = 220 * 8 + 'px'
+
+
+				setInterval(function() {
+					starMove(oUl2, {left: oUl2.offsetLeft - 220},function() {
+						if(oUl2.offsetLeft <= -oUl2.offsetWidth /2){
+							oUl2.style.left = '0px'
+						}
+					})
+				}, 2000)
+				
+				function starMove(node, cssObj, complete){
+					clearInterval(node.timer)
+					node.timer = setInterval(function(){
+						var isEnd = true //假设所有动画都到达目的值
+						for(var attr in cssObj){
+							var iTarget = cssObj[attr]
+							
+							//计算速度
+							var iCur = null
+							if(attr == 'opacity'){
+								iCur = parseInt(parseFloat(getStyle(node, 'opacity')) * 100)
+							}else{
+								iCur = parseInt(getStyle(node, attr))
+							}
+						
+							var speed = (iTarget - iCur) /8
+							speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed)
+							
+							if(attr == 'opacity'){
+								iCur += speed
+								node.style.opacity = iCur /100
+								node.style.filter = 'alpha(opacity= '+ iCur + ')'
+							}else{
+								node.style[attr] = iCur + speed + 'px'
+							}
+							if(iCur != iTarget){
+								isEnd = false
+							}
+						}
+						if(isEnd){
+							clearInterval(node.timer)
+							if(complete){
+								complete.call(node)
+							}
+						}
+					},30)
+				}
+				
+				//获取当前有效样式浏览器兼容写法
+				function getStyle(node, cssStr){
+					return node.currentStyle ? node.currentStyle[cssStr] : getComputedStyle(node)[cssStr]
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id="div2">
+			<ul id="ul2">
+				<li style="background-color: yellow;">1</li>
+				<li style="background-color: blue;">2</li>
+				<li style="background-color: green;">3</li>
+				<li style="background-color: red;">4</li>
+			</ul>
+		</div>
+	</body>
+</html>

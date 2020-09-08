@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<p>案例一：v-model结合checkbox</p>
+			<label for="Agree">
+				<input type="checkbox" id="Agree" v-model="isAgree"/>同意协议
+			</label>
+			<h2>您选择的是：{{isAgree}}</h2>
+			<button :disabled="!isAgree">下一步</button>
+			
+			<hr />
+			
+			<p>案例二：v-model结合checkbox</p>
+			<input type="checkbox" value="篮球" v-model='Hobby' />篮球
+			<input type="checkbox" value="足球" v-model='Hobby' />足球
+			<input type="checkbox" value="乒乓球" v-model='Hobby' />乒乓球
+			<input type="checkbox" value="排球" v-model='Hobby' />排球
+			<h2>您选着的爱好是：{{Hobby}}</h2>
+			
+			<hr />
+			
+			<p>案例三：v-model结合v-for进行值绑定</p>
+			<label v-for="item in Like" :for="item">
+				<input type="checkbox" :id="item" :value="item" v-model="Hobby"/>{{item}}
+			</label>
+			
+			<hr />
+			
+			<p>案例三：v-model结合select</p>
+			<select name="abc1" v-model="fruit1">
+				<option value="苹果">苹果</option>
+				<option value="香蕉">香蕉</option>
+				<option value="橘子">橘子</option>
+				<option value="菠萝">菠萝</option>
+			</select>
+			<h2>您选着的水果是：{{fruit1}}</h2>
+			
+			<hr />
+			
+			<p>案例四：v-model结合select和multiple进行多选</p>
+			<select name="abc2" v-model="fruit2" multiple>
+				<option value="苹果">苹果</option>
+				<option value="香蕉">香蕉</option>
+				<option value="橘子">橘子</option>
+				<option value="菠萝">菠萝</option>
+			</select>
+			<h2>您选着的水果是：{{fruit2}}</h2>
+			
+		</div>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<script>
+			var app = new Vue({
+				el:'#app',
+				data:{
+					isAgree:'false',
+					Hobby:[],
+					Like:['台球','羽毛球','高尔夫球','网球'],
+					fruit1:'香蕉',
+					fruit2:[]
+				}
+			})
+		</script>
+	</body>
+</html>

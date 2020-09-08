@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			#demo{
+				width: 800px;
+				height: 550px;
+				margin: 100px auto;
+				position: relative;
+			}
+			#box {
+				width: 800px;
+				height: 500px;
+				position: absolute;
+				background: burlywood;
+			}
+			@media screen and (max-width:767px) {
+				#demo{
+					width: 300px;
+				}
+				#box {
+					width: 300px;
+				}
+			}
+			@media screen and (min-width:766px) {
+				#demo{
+					width: 300px;
+				}
+				#box {
+					width: 300px;
+				}
+			}
+			@media screen and (min-width:992px) {
+				#demo{
+					width: 800px;
+				}
+				#box {
+					width: 800px;
+				}
+			}
+			@media screen and (min-width:1200px) {
+				#demo{
+					width: 800px;
+				}
+				#box {
+					width: 800px;
+				}
+			}
+			#btn{
+				position: absolute;
+				bottom: 0px;
+				
+			}
+		</style>
+	</head>
+	<body>
+		<div id="demo">
+			<div id="box"></div>
+			<button id="btn">点击创建小球</button>
+		</div>
+		<script>
+			let box = document.getElementById("box")
+			let btn = document.getElementById("btn")
+
+			//创建小球
+
+			let colors = ['red', 'yellow', 'blue', 'green', 'black', 'pink']
+			btn.onclick = function() {
+				let ball = document.createElement('div')
+				ball.style.position = 'absolute'
+				ball.style.borderRadius = '50%'
+				ball.style.width = 30 + "px"
+				ball.style.height = 30 + "px"
+				ball.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)]
+				box.appendChild(ball)
+
+				let left = Math.floor(Math.random() * (box.offsetWidth - ball.offsetWidth)) //随机数
+				let top = Math.floor(Math.random() * (box.offsetHeight - ball.offsetHeight))
+
+				ball.style.left = left + 'px'
+				ball.style.top = top + 'px'
+
+				let x = 10
+				let y = 10
+
+				setInterval(function() {
+					left += x
+					top += y
+					if (left < 0 || left > (box.offsetWidth - ball.offsetWidth)) {
+						x = -x
+					}
+					if (top < 0 || top > (box.offsetHeight - ball.offsetHeight)) {
+						y = -y
+					}
+					ball.style.left = left + 'px'
+					ball.style.top = top + 'px'
+				}, 30)
+			}
+		</script>
+	</body>
+</html>

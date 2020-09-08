@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title></title>
+</head>
+<body>
+	<div id="app">
+		<!-- 不传参数则显示下面的默认值 -->
+		<cpn :cmassge='massge' :cactive='active'></cpn>
+	</div>
+	
+	<template id="cpn">
+		<div>
+			<h2 v-for="item1 in cmassge">{{item1}}</h2>
+			<h2 v-for="item2 in cactive">{{item2}}</h2>
+		</div>
+	</template>
+	
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script>
+		const cpn = {
+			template:'#cpn',
+			//第一中写法：数组类型
+			// props:['cmassge','cactive'],
+			//第二种写法：对象类型，好处是可以指定类型 String Number Boolean Array Object Date Function Symbol
+			props:{
+				//1.props中第一种方式 类型限制
+				// cmassge:Array,
+				// cactive:Array,
+				// 2.props中第二种方式 对应的也可以是对象 提供默认值和类型限制
+				cmassge:{
+					type:Array,
+					// 默认值
+					default:['aaaa','bbb','ccc']
+				},
+				cactive:{
+					type:Array,
+					default:['aaaa','bbb','ccc']
+					//required：必传值，不传就会报错
+					// required:true
+				}
+			},
+			data(){
+				return {}
+			}
+		}
+		
+		var app = new Vue({
+			el:'#app',
+			data:{
+				massge:['好好学习','不想被人瞧不起','开心'],
+				active:['关键字: template:\'#cpn\' 挂载组件 components:注册组件 props:父传子通讯','父子之间通讯']
+			},
+			components:{
+				// 'cpn' = cpn 语法糖 直接 cpn
+				cpn
+			}
+		})
+	</script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			*{margin: 0;padding: 0;}
+			div{width: 100px;height: 100px;background-color: red; margin: 50px; opacity: 0.3; filter:alpha(opacity=30);}
+		</style>
+		<script>
+			window.onload = function () {
+				var div = document.getElementsByTagName("div")
+				div[0].onmouseover = function () {
+					Move(this, "opacity", 100)
+				}
+				div[0].onmouseout = function () {
+					Move(this, "opacity", 30)
+				}
+				div[1].onclick = function () {
+					Move(this, "width", 300)
+				}
+				div[2].onclick = function () {
+					Move(this, "height", 300)
+				}
+				
+				div[3].onclick = function () {
+					Move(this, "fontSize", 300)
+				}
+			}
+			
+			function Move(node, attr, iTarget) {
+				clearInterval(node.timer)
+				node.timer = setInterval(function(){
+					var iCur = null
+					if(attr == "opacity"){
+						//得到opacity值为30
+						iCur = parseInt(parseFloat(Style(node, "opacity")) * 100)
+					}else{
+						iCur = parseInt(Style(node, attr))
+					}
+					
+					var span = (iTarget - iCur) / 8
+					span = span > 0 ? Math.ceil(span) : Math.floor(span)
+					
+					if(iTarget == iCur){
+						clearInterval(node.timer)
+					}else{
+						if (attr == 'opacity') {
+							iCur += span
+							node.style.opacity = iCur / 100
+							node.style.filter = 'alpha(opacity=" + iCur + ")'
+						}else{
+							node.style[attr] = iCur + span + 'px'
+						}
+					}
+				},30)
+			}
+			function Style(node, cssStr){
+				return node.currentStyle ? node.currentStyle[cssStr] : getComputedStyle(node)[cssStr];
+			}
+		</script>
+	</head>
+	<body>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div>文本</div>
+	</body>
+</html>

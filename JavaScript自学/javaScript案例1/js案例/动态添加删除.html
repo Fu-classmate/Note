@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+
+			#box1 {
+				width: 80%;
+				margin: 20px auto;
+				text-align: center;
+			}
+
+			table {
+				margin-top: 30px;
+				border-collapse: collapse;
+			}
+
+			tr td,
+			tr th {
+				border: 1px solid gray;
+				width: 300px;
+				line-height: 35px;
+				text-align: center;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box1">
+			<label for="">编号：</label><input type="text" id="txt1">
+			<label for="">姓名：</label><input type="text" id="txt2">
+			<label for="">住址：</label><input type="text" id="txt3">
+			<input id="btn1" type="button" value="添加" style="margin-top: 10px;">
+			<table>
+				<tbody id="body">
+					<tr>
+						<th>编号</th>
+						<th>姓名</th>
+						<th>住址</th>
+						<th>操作</th>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<script type="text/javascript">
+			var id = document.getElementById('txt1'); //编号
+			var n = document.getElementById('txt2'); //姓名
+			var address = document.getElementById('txt3'); //地址
+			var btn1 = document.getElementById('btn1'); //添加按钮
+			var tbody = document.getElementById('body');
+
+			btn1.onclick = function() {
+				var tr = a()
+				tbody.appendChild(tr)
+			}
+
+			function a() {
+				var aa = document.createElement('tr')
+				var td1 = move(id.value, false)
+				var td2 = move(n.value, false)
+				var td3 = move(address.value, false)
+				var td4 = move('删除', true)
+				aa.appendChild(td1)
+				aa.appendChild(td2)
+				aa.appendChild(td3)
+				aa.appendChild(td4)
+				return aa
+			}
+
+			function move(one, two) {
+				var bb = document.createElement('td')
+				if (two) {
+					var Link = document.createElement('a')
+					Link.href = 'javascript:;'
+					Link.innerHTML = one
+					bb.appendChild(Link)
+					Link.onclick = function() {
+						var tr = this.parentNode.parentNode;
+						tr.parentNode.removeChild(tr);
+					}
+				} else {
+					bb.innerHTML = one
+				}
+				return bb
+			}
+		</script>
+	</body>
+</html>

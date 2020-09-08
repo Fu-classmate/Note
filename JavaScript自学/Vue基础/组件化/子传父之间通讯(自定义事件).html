@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<!-- 第二步引用自定义事件 -->
+			<cpn @btnclick='vbtn'></cpn>
+		</div>
+		
+		<template id="cpn">
+			<div>
+				<!-- 第一步自定义事件 -->
+				<button v-for="n in info" @click="btnclick(n)">{{n.name}}</button>
+			</div>
+		</template>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<script type="text/javascript">
+			const cpn = {
+				template:'#cpn',
+				data(){
+					return {
+						info:[
+							{id:'1',name:'好好学习'},
+							{id:'2',name:'天天向上'},
+							{id:'3',name:'好好学习'},
+							{id:'4',name:'天天向上'},
+						]
+					}
+				},
+				methods:{
+					btnclick(item){
+						//通过自定义事件进行子父通讯
+						this.$emit('btnclick',item)
+					}
+				}
+			}
+			
+			var app = new Vue({
+				el:'#app',
+				data:{
+					
+				},
+				components:{
+					cpn
+				},
+				methods:{
+					vbtn(item){
+						console.log('vtbn',item)
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

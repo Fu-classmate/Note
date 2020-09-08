@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			* {
+				margin: 0px;
+				padding: 0px;
+			}
+			
+			.box{
+				margin: 100px auto;
+				width: 470px;
+			}
+			
+			.container1 {
+				display: flex;
+				text-align: center;
+				justify-content: center;
+				flex-wrap: wrap;
+				width: 450px;
+				
+			}
+
+			.circle {
+				background-color: #aaffff;
+				height: 14px;
+				width: 14px;
+				border-radius: 50%;
+				cursor: pointer;
+				margin: 8px;
+				transform: scale(1);
+				transition: transform 0.3 linear;
+			}
+
+			.circle.grow {
+				transform: scale(2);
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<h3 style="margin-bottom:10px;text-align: center;">点击下方小球</h3>
+			<div id="container1" class="container1"></div>
+		</div>
+		<script>
+			//获取节点
+			const container1 = document.getElementById('container1')
+			const circlesArr = []
+
+			let x = 15
+			let y = 15
+
+			//双重循环实现小球
+			for (let i = 0; i < x; i++) {
+				circlesArr[i] = []
+				for (let j = 0; j < y; j++){
+					const circle= document.createElement('div')
+					circle.classList.add('circle')
+					container1.appendChild(circle)
+					circlesArr[i].push(circle)
+				}
+			}
+			
+			circlesArr.forEach((x,i) => {
+				x.forEach((circle,j) => {
+					circle.addEventListener('click', () => {
+						growCircles(i,j)
+					})
+				})
+			})
+			
+			function growCircles(i,j){
+				if(circlesArr[i] && circlesArr[i][j]){
+					if(!circlesArr[i][j].classList.contains('grow')){
+						circlesArr[i][j].classList.add('grow')
+						setTimeout(() => {
+							growCircles(i-1,j)
+							growCircles(i+1,j)
+							growCircles(i,j-1)
+							growCircles(i,j+1)
+						},100)
+						
+						setTimeout(() =>{
+							circlesArr[i][j].classList.remove('grow')
+						},300)
+					}
+				}
+			}
+		</script>
+	</body>
+</html>

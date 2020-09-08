@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<!-- 对象语法 -->
+			<h3 :style="{fontSize:finalSize1,color:finalColor1}">{{messge}}</h3>
+			<!-- 数组语法 -->
+			<h3 :style="[finalSize2,finalcolor2]">{{messge}}</h3>
+		</div>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<script>
+			var app = new Vue({
+				el:'#app',
+				data:{
+					messge: 'hello',
+					//对象语法
+					finalSize1: '50px',
+					finalColor1: 'red',
+
+					//数组语法
+					finalSize2:{
+						fontSize:'50px'
+					},
+					finalcolor2:{
+						color:'yellow'
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

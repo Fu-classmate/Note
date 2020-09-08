@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			*{margin: 0;padding: 0;}
+			div{width: 100px;height: 50px;background-color: red;margin-top:50px;margin-left: 200px;}
+		</style>
+		<script>
+			window.onload = function () {
+				var div = document.getElementsByTagName("div");
+				for (var i = 0;i < div.length;i++){
+					div[i].onmouseover = function () {
+						Move(this, 300)
+					}
+					div[i].onmouseout = function () {
+						Move(this, 100)
+					}
+				}
+			}
+			
+			function Move(node, iTarget){
+				clearInterval(node.timer)
+				node.timer = setInterval(function(){
+					var span = (iTarget - node.offsetWidth) / 8
+					span = span > 0 ? Math.ceil(span) : Math.floor(span)
+					if(node.offsetWidth == iTarget){
+						clearInterval(node.timer)
+					}else{
+						node.style.width = node.offsetWidth + span + 'px'
+					}
+				},30)
+			}
+		</script>
+	</head>
+	<body>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+	</body>
+</html>

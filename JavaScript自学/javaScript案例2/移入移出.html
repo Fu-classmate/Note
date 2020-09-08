@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			*{margin: 0;padding: 0;}
+			#box{width: 100px;height: 200px;background-color: red;position: absolute;left: -100px;top: 400px;}
+			#box span{width:20px;height: 60px;background-color: orange;position: absolute;left: 100px;top: 70px;cursor: pointer;}
+		</style>
+		<script>
+			window.onload = function () {
+				var box = document.getElementById("box")
+				box.onmouseover = function () {
+					Move(0);
+				}
+				box.onmouseout = function () {
+					Move(-100);
+				}
+			}
+			
+			var timer = null;
+			function Move(iTarget) {
+				var box = document.getElementById("box");
+				var span = 5;
+				span = box.offsetLeft > iTarget ? -Math.abs(span) : Math.abs(span);
+				clearInterval(timer);
+				timer = setInterval(function(){
+					if(box.offsetLeft == iTarget){
+						clearInterval(timer);
+					}else{
+						box.style.left = box.offsetLeft + span + 'px';
+					}
+				},30)
+			}
+		</script>
+	</head>
+	<body>
+		<div id="box">
+			<span>分享到</span>
+		</div>
+	</body>
+</html>

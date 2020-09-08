@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			let Move = null
+			setTimeout(function() {
+				Move = window.open('', '_blank', 'width=300,height, left=0,top=0') //open创建一个窗口
+				var x = (window.outerWidth - Move.outerWidth)/2
+				var y = (window.outerHeight - Move.outerHeight)/2
+				Move.moveTo(x, y)   //将窗口移动到指定地方
+				
+			}, 1000)
+			setTimeout(function(){
+				if(!Move.closed){ //closed检查窗口是否关闭
+					Move.close() //closed用于关闭浏览器窗口
+				}
+			},2000)
+		</script>
+	</body>
+</html>

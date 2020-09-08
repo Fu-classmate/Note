@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			*{margin: 0;padding: 0;}
+			div{width: 100px;height: 50px;background-color: red;margin-top:50px;margin-left: 200px;opacity: 0.3; filter:alpha(opacity=30);}
+		</style>
+		<script>
+			window.onload = function () {
+				var div = document.getElementsByTagName("div");
+				for (var i = 0;i < div.length;i++){
+					//添加事件前把先做存入
+					div[i].alpha = 30
+					div[i].onmouseover = function () {
+						Move(this, 100)
+					}
+					div[i].onmouseout = function () {
+						Move(this, 30)
+					}
+				}
+			}
+			
+			function Move(node, iTarget){
+				clearInterval(node.timer)
+				node.timer = setInterval(function(){
+					var span = (iTarget - node.alpha) / 30
+					span = span > 0 ? Math.ceil(span) : Math.floor(span)
+					if(iTarget == node.alpha){
+						clearInterval(node.timer)
+					}else{
+						node.alpha += span
+						
+						node.style.opacity = node.alpha / 100
+						node.style.filter = 'alpha(opacity= " + node.alpha + ")'
+					}
+				},30)
+			}
+		</script>
+	</head>
+	<body>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+	</body>
+</html>

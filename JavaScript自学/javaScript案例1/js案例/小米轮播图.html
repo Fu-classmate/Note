@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+		<title></title>
+		<style>
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			.wrap{
+				width: 800px;
+				height:400px;
+				position: relative;
+				margin: 100px auto;
+			}
+			.list{
+				width: 800px;
+				height: 400px;
+				list-style: none;
+				position: relative;
+			}
+			@media screen and (max-width:767px) {
+				.wrap{
+					width: 300px;
+				}
+				.list{
+					width: 300px;
+				}
+			}
+			@media screen and (min-width:766px) {
+				.wrap{
+					width: 300px;
+				}
+				.list{
+					width: 300px;
+				}
+			}
+			@media screen and (min-width:992px) {
+				.wrap{
+					width: 800px;
+				}
+				.list{
+					width: 800px;
+				}
+			}
+			@media screen and (min-width:1200px) {
+				.wrap{
+					width: 800px;
+				}
+				.list{
+					width: 800px;
+				}
+			}
+			.item{
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				color: white;
+				font-size:50px;
+				padding-left:0px;
+				opacity: 0;
+				transition: all .5s;
+			}
+			.item:nth-child(1){
+				background-color:black;
+			}
+			.item:nth-child(2){
+				background-color: red;
+			}
+			.item:nth-child(3){
+				background-color: yellow;
+			}
+			.item:nth-child(4){
+				background-color: green;
+			}
+			.item:nth-child(5){
+				background-color: pink;
+			}
+			.btn{
+				width: 50px;
+				height: 100px;
+				position: absolute;
+				top: 150px;
+				z-index: 100;
+			}
+			#goPre{
+				left: 0px;
+			}
+			#goNet{
+				right: 0px;
+			}
+			.item.active{
+				opacity: 1;
+				z-index: 10;
+			}
+			.pointList{
+				padding-left:0px;
+				list-style: none;
+				position: absolute; 
+				right: 20px;
+				bottom: 20px;
+				z-index: 100;
+			}
+			.point{
+				width: 8px;
+				height: 8px;
+				background-color: rgba(0,0,0,0.4);
+				border-radius:100%;
+				float: left;
+				margin-right:14px;
+				border:2px solid rgba(255,255,255,0.6);
+				cursor: pointer;
+			}
+			.point.active{
+				background-color: rgba(255,255,255,0.8);
+			}
+		</style>
+	</head>
+	<body>
+		<div class="wrap">
+			<ul class="list">
+				<li class="item active">0</li>
+				<li class="item">1</li>
+				<li class="item">2</li>
+				<li class="item">3</li>
+				<li class="item">4</li>
+			</ul>
+			<ul class="pointList">
+				<li class="point active" data-index="0"></li> <!-- HTML5标准在标签存数据 -->
+				<li class="point" data-index="1"></li>
+				<li class="point" data-index="2"></li>
+				<li class="point" data-index="3"></li>
+				<li class="point" data-index="4"></li>
+			</ul>
+			<button type="button" class="btn" id="goPre">&lt;</button>
+			<button type="button" class="btn" id="goNet">&gt;</button>
+		</div>
+		<script>
+			var items = document.getElementsByClassName('item') //获取图片
+			var points = document.getElementsByClassName('point') //获取点
+			var goPreBtn = document.getElementById('goPre') //获取左按钮
+			var goNetBtn = document.getElementById('goNet') //获取右按钮
+
+			var index = 0; //index表示第几张图片在展示。表示item中存在active类名 同时展示点的显示
+
+			var time = 0; //定时器跳转参数
+
+			var clearActive = function() {
+				for (let i = 0; i < items.length; i++) {
+					items[i].className = 'item'
+				}
+				for (let i = 0; i < points.length; i++) {
+					points[i].className = 'point'
+				}
+			}
+
+			var goIndex = function() {
+				clearActive()
+				items[index].className = 'item active'
+				points[index].className = 'point active'
+			}
+
+			var goNet = function() {
+				if (index < 4) {
+					index++
+				} else {
+					index = 0
+				}
+				goIndex()
+			}
+
+			var goPre = function() {
+				if (index == 0) {
+					index = 4
+				} else {
+					index--
+				}
+				goIndex()
+			}
+
+			//右按钮监听事件
+			goNetBtn.addEventListener('click', function() {
+				goNet()
+				time = 0 //重置定时器时间
+			})
+
+			//左按钮监听事件
+			goPreBtn.addEventListener('click', function() {
+				goPre()
+				time = 0
+			})
+
+			// 遍历按钮并添加事件
+			for (var i = 0; i < points.length; i++) {
+				points[i].addEventListener('click', function() {
+					var pointIndex = this.getAttribute('data-index')
+					index = pointIndex
+					goIndex()
+					time = 0
+				})
+			}
+
+			setInterval(function() {
+				time++
+				if (time == 20) {
+					goNet()
+					time = 0
+				}
+			}, 100)
+		</script>
+	</body>
+</html>

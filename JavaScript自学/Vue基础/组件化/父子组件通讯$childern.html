@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<cpn></cpn>
+			<cpn></cpn>
+			<cpn ref='aaa'></cpn>
+			<button @click="cclick">点击</button>
+		</div>
+		
+		<template id="cpn">
+			<div>
+				<h2>您好</h2>
+			</div>
+		</template>
+		
+	</body>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script>
+		var app = new Vue({
+			el:'#app',
+			data:{
+				message:'您好'
+			},
+			methods:{
+				//第二步
+				cclick(){
+					// 第一种拿子组件数据的方法 $children
+					// console.log(this.$children)
+					// for(let c of this.$children){
+					// 	console.log(c.name)
+					// 	console.log(c.showMessage)
+					// }
+					
+					//第一种拿子组件数据的方法 需要在组件上标识 $refs
+					console.log(this.$refs)
+					console.log(this.$refs.aaa)
+					console.log(this.$refs.aaa.name)
+				}
+			},
+			components:{
+				// 第一步
+				cpn:{
+					template:'#cpn',
+					data(){
+						return {name:'我是子组件name'}
+					},
+					methods:{
+						showMessage(){
+							console.log('showMessage')
+						}
+					}
+				}
+			}
+		})
+	</script>
+</html>
