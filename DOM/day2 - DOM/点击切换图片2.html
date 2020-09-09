@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<button class='btn' data-dizhi='./img/hx1.jpg'>第一张图</button>
+		<button class='btn' data-dizhi='./img/hx2.jpg'>第二张图</button>
+		<button class='btn' data-dizhi='./img/hx3.jpg'>第三张图</button>
+		<img src='./img/hx1.jpg' id='img' />
+		<script>
+			// 点击不同的按钮切换对应的图片
+			var btns = document.getElementsByClassName('btn')
+			var img = document.getElementById('img')
+
+			// 获取自定义属性
+			// 如果自定义属性是以data开头的 那么这样获取
+
+			//设置 data 固定 获取 data中的dataset 固定  data - 随意写
+			// console.log(btn_1.dataset.xxxx)
+			console.log(btns[0].dataset.dizhi)
+
+
+			for (var i = 0; i < btns.length; i++) {
+				var everyBtn = btns[i]
+				everyBtn.onclick = function() {
+					//this  //表示当前  谁调用这个函数 那么thsi就是谁
+					img.src = this.dataset.dizhi
+				}
+			}
+		</script>
+	</body>
+</html>

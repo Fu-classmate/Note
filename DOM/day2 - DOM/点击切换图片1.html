@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<button id='btn1'>第一张图</button>
+		<button id='btn2'>第二张图</button>
+		<button id='btn3'>第三张图</button>
+		<img src='./img/hx1.jpg' id='img' />
+		<script>
+			// 点击不同的按钮切换对应的图片
+			
+			var btn_1 = document.getElementById('btn1')
+			var btn_2 = document.getElementById('btn2')
+			var btn_3 = document.getElementById('btn3')
+			var img = document.getElementById('img')
+
+			// 获取元素身上的属性 直接写 element.属性
+			// 如果是元素身上的属性
+
+			btn_1.onclick = function() {
+				img.src = 'img/hx1.jpg'
+			}
+
+			btn_2.onclick = function() {
+				img.src = 'img/hx2.jpg'
+			}
+
+			btn_3.onclick = function() {
+				img.src = 'img/hx3.jpg'
+			}
+		</script>
+	</body>
+</html>
