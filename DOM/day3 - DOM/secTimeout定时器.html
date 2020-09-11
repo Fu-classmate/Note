@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+
+		<script>
+			// 延时定时器  执行一次
+			// 回调函数  就是回来了之后在调用这个函数
+			// setTimeout('第一个参数计算这个函数我们叫回调函数','第二个参数是时间,单位毫秒')
+
+			// 方式一
+			setTimeout(function() {
+				console.log('hello word')
+			}, 3000)
+
+			// 方式二
+			setTimeout(myfn, 5000)
+
+			function myfn() {
+				console.log('hello word')
+			}
+
+			//回调函数谁来调用 回调函数是window来调用
+			// setTimeout(function(a) {
+			// 	console.log('hello word' + a)
+			// }, 3000,'你好')   //可以传参数
+		</script>
+	</body>
+</html>

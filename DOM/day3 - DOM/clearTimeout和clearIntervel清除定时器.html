@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<button id='btn'>点击清除</button>
+		<script>
+			//清除定时器
+
+			//cleartimeout
+			var timer1 = setTimeout(myfn1, 3000)
+
+			function myfn1() {
+				console.log('hello word1')
+			}
+			clearTimeout(timer1)
+
+
+			//clearInterval
+			var btn = document.getElementById('btn')
+			var timer2 = setInterval(myfn2, 3000)
+
+			function myfn2() {
+				console.log('hello word2')
+			}
+			// 点击清除定时器
+			btn.onclick = function() {
+				clearInterval(myfn2)
+			}
+		</script>
+	</body>
+</html>

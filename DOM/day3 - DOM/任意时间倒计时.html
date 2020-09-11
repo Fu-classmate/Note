@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<h1 id='h1'></h1>
+		<script>
+			//倒计时 2020 11 11 00:00:00
+			var h1 = document.getElementById('h1')
+
+			// var num = prompt()
+			happyTime('2021 01 01 00:00:00', '元旦') //刚进入时会出现页面延迟一秒才能看到内容 解决方案 先调用
+			function happyTime(time, iDay) {
+				setTimeout(happyTime, 1000, time, iDay)
+				// 1 获取当前时间
+				var startTime = new Date()
+				// 2 获取时间
+				var endTime = new Date(time)
+				var dTime = (endTime - startTime) / 1000
+				var day = Math.floor(dTime / 60 / 60 / 24)
+				var hour = Math.floor(dTime / 60 / 60 % 24)
+				var mm = Math.floor(dTime / 60 % 60)
+				mm = mm < 10 ? '0' + mm : mm
+				var ss = Math.floor(dTime % 60)
+				var str = `距离${iDay}还有${day}天${hour}小时${mm}分${ss}秒`
+				h1.innerHTML = str
+			}
+		</script>
+	</body>
+</html>

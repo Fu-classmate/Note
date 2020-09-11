@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text">
+		<button id='btn'>点击发送</button>
+		<script>
+			var btn = document.getElementById('btn')
+			var timer = null
+			var count = 10
+			btn.onclick = function (){
+				clearInterval(timer)
+				// 点击过后禁止按钮不让点击
+				btn.disabled = true
+				timer = setInterval(function(){
+					count --
+					btn.innerHTML = `倒计时${count}秒`
+					if(count === 0){
+						btn.disabled = false;
+						btn.innerHTML='点击发送'
+						clearInterval(timer)
+					}
+				},1000)
+			}
+		</script>
+	</body>
+</html>
