@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+
+			body {
+				padding: 100px;
+			}
+
+			textarea {
+				width: 200px;
+				height: 100px;
+				border: 1px solid pink;
+				outline: none;
+				resize: none;
+			}
+
+			ul {
+				margin-top: 50px;
+			}
+
+			li {
+				width: 300px;
+				padding: 5px;
+				background-color: rgb(245, 209, 243);
+				color: red;
+				font-size: 14px;
+				margin: 15px 0;
+			}
+		</style>
+	</head>
+	<body>
+		<textarea></textarea> <!-- 输入框 -->
+		<button>发布</button>
+		<ul></ul>
+
+		<script>
+			// 1  给按钮button 绑定点击事件
+			// 2  把输入框的内容获取到 然后动态的追加到ul 下面
+			//    需求  点击发布按钮的是时候  把 textarea 展示到下面
+
+			var txt = document.querySelector('textarea')
+			var btn = document.querySelector('button')
+			var ul = document.querySelector('ul')
+
+			btn.onclick = function() {
+				/* 
+					动态创建li标签 把文本的内容给到动态创建的li标签
+					把生成的li标签追加到ul里面
+				 */
+				// 先获取value值 然后在去除两边空格
+				var getVal = (txt.value).trim()
+				if (getVal == '') {
+					alert('不要瞎搞 文字内容不能为空')
+					//    return false;
+					return false; //阻止后续代码执行
+				}
+
+				var myli = document.createElement('li')
+				myli.innerHTML = getVal
+				// 声明变量 获取ul第一项 动态从第一项添加
+				var fir = ul.children[0] //子元素的第一项
+				ul.insertBefore(myli, fir)
+
+				// 添加完成后清空输入框
+				txt.value = ''
+			}
+		</script>
+	</body>
+</html>

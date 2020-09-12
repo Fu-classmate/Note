@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id='demo' index='1' class='nav' myname='孙悟空'>孙悟空</div>
+		<script>
+			var div = document.querySelector('div')  //获取标签
+			var div = document.querySelector('#div') //获取id
+			var div = document.querySelector('.nav') //获取类名
+			
+			console.log(div.id)
+			console.log(div.className)
+			
+			// 获取自定义属性
+			// var myindex = div.getAttribute('自定义的名字')
+			var myIndex = div.getAttribute('index')
+			var myName = div.getAttribute('myname')
+			console.log(myIndex)
+			console.log(myName)
+			
+			// 设置 自定义属性 设置一个年龄  myage = 50
+			// div.stAttribute('第一个参数是定义名字','第二个参数设置的值')
+			div.setAttribute('myage','50')
+			var myage = div.getAttribute('myage')
+			console.log(myage)  //字符串
+			
+			// 删除 自定义属性
+			// div.removeAttribute('自定义的名字')
+			div.removeAttribute('myage')
+			console.log(div)
+			
+			// 获取自定义属性 如果获取不到那么就是null （查）
+			
+			// 修改 自定义属性
+			div.setAttribute('myage','120')
+			var myage = div.getAttribute('myage')
+			console.log(myage)  //字符串
+		</script>
+	</body>
+</html>

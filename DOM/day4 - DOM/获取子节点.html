@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div class='demo'>
+			<div class='box'>
+				<span class='message'>孙悟空</span>
+				<span class='erweima'>孙悟空</span>
+				<span class='erweima'>孙悟空</span>
+				<span class='erweima'>孙悟空</span>
+			</div>
+		</div>
+		<script>
+			// 获取父节点
+			var erweima = document.querySelector('.message')
+			var parent = erweima.parentNode
+			console.log(parent)
+
+			//获取子节点 (实时更新)
+			var box = document.querySelector('.box')
+
+			var lis = box.children //重点用这个
+			var allLis = box.childNodes //会获取两边的空格
+
+			console.log(lis)
+			console.log(allLis)
+		</script>
+	</body>
+</html>

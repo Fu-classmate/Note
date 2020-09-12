@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Document</title>
+	</head>
+
+	<body id=''>
+		<ul>
+			<li>123</li>
+		</ul>
+		<script>
+			var body = document.querySelector('body');
+			var ul = document.querySelector('ul')
+			
+			
+			// 1 动态创建元素节点
+			// var myli=document.createElement('需要创建的元素名字')
+			var p = document.createElement('p');
+			// 2 设置 这个动态创建的元素的内容
+			p.innerHTML = '我是动态创建的元素'
+			//3 把这个动态创建的元素 追加到页面上
+			// appendChild(写节点或者元素) 再后面追加
+			body.appendChild(p)
+
+
+			//需求是把 动态创建的a追加到ul的前面
+			var a = document.createElement('a');
+			a.innerText = '我是一个动态创建的a';
+			a.href = 'http://www.baidu.com';
+			// body.insertBefore('动态创建的要追加的元素','指定位置的元素')
+			body.insertBefore(a, ul)
+		</script>
+	</body>
+
+</html>
