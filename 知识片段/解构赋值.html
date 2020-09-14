@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			// 解构赋值
+
+			// 数组解构赋值
+			let arr = [1, 2, 3] //数组解构赋值  （位置 一 一 对应）
+			let [a, b, c] = arr //a = 1  b = 2  c = 3
+			//let [a,b,c,d] = arr  //若 arr 数组长度不满足 则解构出来的 d 为 undefined
+			//let [a,b,c,d = 4]	// d = 4  若长度不够 可以赋默认值
+
+			// 对象解构赋值
+			let obj = { //对象解构赋值  自身匹配不到  则去原型对象匹配  （key值 一 一对应）
+				name: 'aa',
+				age: 12
+			}
+			// let {name:自定义接收,age:自定义接收} = obj
+			let {name: nm,age: ag} = obj  //nm = 'aa'  ag = '12'  若声明不存在的键值 则为 undefined
+			//let {name: nm,age: ag,toString:aa} = obj // aa 则去找原型中的toSring
+			
+			// 字符串解构赋值
+			let str = 'abcdefg'
+			let [one,two,three] = str  //若以数组的形式解构   one = a  two = b  three = c
+			let {indexOf,length,slice,aaa} = str  //若以对象的形式解构  则去原型里面找 没有则为undefined
+			
+		</script>
+	</body>
+</html>

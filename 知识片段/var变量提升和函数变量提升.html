@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			// var 变量提升   所有的变量的声明语句，都会被提升到代码的头部
+
+			console.log(a)     // undefined
+			var a = 123
+			// 相当于
+			var a
+			console.log(a) 	   // undefined
+			a = 123
+
+			
+			//变量提升只对var命令声明的变量有效，
+			// 如果一个变量不是用var命令声明的，就不会发生变量提升。
+			
+			// console.log(b) 	//报错   //b is not defined 未定义
+			b = 234 		//相当于window.aa = 234  若不写var  则全局变量
+
+
+			// 函数提升  把aa()提升在最前 在js中函数是第一公民  会比var声明的的变量更靠前
+			aa() //正常输出函数
+			function aa() {
+				console.log('hello word')
+			}
+
+			//bb()  //var提升   报错 无法进行函数提升
+			var bb = function() {
+				console.log('hello word')
+			}
+
+			// 相当于		
+			var bb //把var提到最前面
+			bb()	// 无法进行函数提升
+			bb = function() {
+				console.log('hello word')
+			}
+		</script>
+	</body>
+</html>

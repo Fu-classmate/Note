@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			// var 没有块级作用域
+			// let 有块级作用域
+
+			var a = 1 //var可重复声明一个变量  会覆盖前者的值
+			var a = 2
+
+			let b = 1 //let不能重复声明
+			//let b = 2  //报错  Identifier 'b' has already been declared   b已声明
+
+			for (var i = 0; i < 10; i++) {}
+			console.log(i) //10
+
+			for (let k = 0; k < 10; k++) {}
+			//console.log(k)	 //k is not defined 未定义
+
+			// function a() {		
+			// 	// 函数b的父级作用域
+			// 	function b(){		
+
+			// 	}
+			// }		
+			// for(括弧里的父级作用域) {
+
+			// }
+
+			// var 同理
+			function aa() {
+				let num = 2
+
+				function b() {
+					//console.log(num)  //报错  优先找最近   
+					let num = 3 //这个 a 和 上面 a 没有关系
+					console.log(num)
+
+					str = 'hello word' //全局
+				}
+				b()
+			}
+			aa()
+
+			for (let i = 0; i < 3; i++) {
+				// 可以获取到i
+				// console.log(i)  // 0 1 2
+				let i = 'abc'
+				console.log(i) // 打印3个abc
+			}
+		</script>
+	</body>
+</html>
