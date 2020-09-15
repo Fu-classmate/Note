@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<ul>
+			<li>这是第一个li</li>
+			<li>这是第二个li</li>
+			<li>这是第三个li</li>
+			<li>这是第四个li</li>
+		</ul>
+		<script>
+			var lis = document.querySelectorAll('li')
+			
+			// for(var i=0;i<lis.length;i++){
+			// 	lis[i].onclick = function (){
+			// 		alert(this.innerHTML)
+			// 	}
+			// }
+			
+			// e 表示事件对象
+			//事件代理 只能通过addEventListener 去绑定 可以绑定到动态创建的元素
+			// ul.addEventListener('事件类型','回调函数','第三个参数是一个布尔值 默认是false')
+			for(var i=0;i<lis.length;i++){
+				ul.addEventListener('click',function (e){
+					alert(e.target.innerHTML)
+				})
+			}
+		</script>
+	</body>
+</html>

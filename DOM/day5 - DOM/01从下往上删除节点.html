@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<button>删除</button>
+		<ul>
+			<li>熊大</li>
+			<li>熊二</li>
+			<li>光头强</li>
+		</ul>
+		<script>
+			// 需求 点击删除 按钮 删除光头强
+
+			// 获取标签
+			var btn = document.querySelector('button')
+			var ul = document.querySelector('ul')
+
+			btn.onclick = function() {
+				if(!ul.children.length){
+					alert('已经删除完了')
+					return false
+				}
+				// 获取最后面的子元素
+				var liatChild = ul.lastElementChild
+
+				// removeChild(需要删除的节点)  删除节点操作 
+				ul.removeChild(liatChild)
+				
+				/* 
+					// 简写 当 只有一行 判断时可这样写 
+					if(!ul.children.length) return false
+					var liatChild = ul.lastElementChild
+					ul.removeChild(liatChild)
+				 */
+			}
+		</script>
+	</body>
+</html>

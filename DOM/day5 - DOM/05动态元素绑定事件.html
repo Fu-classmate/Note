@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<button>点击添加</button>
+		<ul>
+		    <li>这是第一个li</li>
+		    <li>这是第二个li</li>
+		    <li>这是第三个li</li>
+		    <li>这是第四个li</li>
+		</ul>
+		<script>
+			var ul = document.querySelector('ul')
+			var btn = document.querySelector('button')
+			
+			ul.addEventListener('click',function(e){
+				 // 获取的 e 事件对象
+				// 事件代理 addEventListener 这个方法去绑定 可以绑定动态创建的元素
+				alert(e.target.innerHTML)
+			})
+			
+			// 动态添加li
+			btn.addEventListener('click',function(){
+				var li = document.createElement('li')
+				li.innerText = '我是动态添加的li'
+				ul.appendChild(li)
+			})
+		</script>
+	</body>
+</html>

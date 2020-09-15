@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<ul>
+			<li>这是第一个li</li>
+			<li>这是第二个li</li>
+			<li>这是第三个li</li>
+			<li>这是第四个li</li>
+		</ul>
+		<script>
+			var ul = document.querySelector('ul')
+
+			// 给当前的父元素 绑定 addEventListener 通过事件委派触发子元素的事件
+			ul.addEventListener('click', function(e) {
+				// e表示事件对象 可以确定当前点击的是哪个
+				// target 事件属性可返回事件的目标节点（触发该事件的节点），如生成事件的元素、文档或窗口
+				alert(e.target.innerHTML)
+			})
+		</script>
+	</body>
+</html>

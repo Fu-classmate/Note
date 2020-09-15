@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<textarea></textarea>
+		<button>发布</button>
+		<ul></ul>
+		<script>
+			// 需求  点击发布按钮 把textarea 发布出去 展示下面
+
+			var text = document.querySelector('textarea')
+			var btn = document.querySelector('button')
+			var ul = document.querySelector('ul')
+
+			btn.onclick = function() {
+				// 获取输入框的value 并清除两边空格
+				var getVal = text.value.trim()
+
+				// 进去if 表示输入为空
+				if (!getVal) {
+					alert('输入为空')
+					return false
+				}
+
+				//动态创建li标签	  创建a标签
+				var li = document.createElement('li')
+				var a = document.createElement('a')
+
+				//赋值
+				li.innerText = getVal
+
+				// 创建删除
+				a.innerText = '删除'
+				a.href = 'javascript:;'
+
+				//将a标签添加到li
+				li.appendChild(a)
+
+				a.onclick = function() {
+					// ul下面子元素 的 父元素
+					ul.removeChild(this.parentNode)
+				}
+
+
+				//添加到ul 里面去 放在最前面
+				ul.insertBefore(li, ul.children[0])
+
+				// 最后清除输入框
+				text.value = ''
+			}
+		</script>
+	</body>
+</html>
