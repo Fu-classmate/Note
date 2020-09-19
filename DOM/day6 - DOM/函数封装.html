@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        div {
+            width: 200px;
+            height: 200px;
+            position: relative;
+            background-color: red;
+        }
+
+        .two {
+            background-color: green;
+        }
+    </style>
+</head>
+
+<body>
+
+    <button class="btn1">按钮1</button>
+    <button class="btn2">按钮2</button>
+
+    <div class="one">1</div>
+    <div class="two">2</div>
+    <script>
+
+        var btn1 = document.querySelector('.btn1');
+        var btn2 = document.querySelector('.btn2');
+
+        var one = document.querySelector('.one');
+        var two = document.querySelector('.two');
+
+        btn1.onclick = function () {
+            myanimate(one, 800, 10, 50, function () {
+                flag = true;
+            })
+            myanimate(two, 800, 10, 50, function () {
+                flag = true;
+            })
+        }
+
+        btn2.onclick = function () {
+            myanimate(one, 300, 10, 50, function () {
+                flag = true;
+            })
+            myanimate(two, 200, 10, 50, function () {
+                flag = true;
+            })
+
+        }
+
+        function myanimate(ele, target, step, time, callback) {
+            if (ele.timerId) {
+                clearInterval(ele.timerId)
+            }
+
+            //保证同一个元素身上永远一个定时器,永远清除的自己的定时器
+
+            ele.timerId = setInterval(function () {
+                var steps = (target - ele.offsetLeft) / step;
+                steps = steps > 0 ? Math.ceil(steps) : Math.floor(steps) // 有可能steps 是负数 趋近于0
+                if (ele.offsetLeft == target) {
+                    ele.style.left = target + 'px';
+                    clearInterval(ele.timeId)
+                    callback && callback()
+
+                }
+                ele.style.left = ele.offsetLeft + steps + 'px';
+
+            }, time);
+
+        }
+        //
+
+
+       //1 动画卡死 抖动的情况   解决 方案  采用 防抖跟节流
+    </script>
+</body>
+
+</html>
