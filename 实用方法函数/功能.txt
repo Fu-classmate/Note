@@ -1,0 +1,14 @@
+//全屏背景颜色  更改背景颜色
+beforeCreate() {
+      if (typeof window !== 'undefined') {
+        document.body.style.backgroundColor = "#eff4f6";
+      }
+}, //
+beforeDestroy() {
+      if (typeof window !== 'undefined') {
+        document.body.style.backgroundColor = "#ffffff";
+      }
+},
+
+//vue2 强制更新
+this.$forceUpdate()

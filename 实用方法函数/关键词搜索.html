@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>关键词搜索</title>
+		<style>
+			*{
+				padding: 0;
+				margin: 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="app">
+			<input type="text" @keyup.enter="myKeyup($event)" />
+			<ul class="itemLi">
+				<li v-for="(item,index) in showLi" :key='index'>
+					{{item.txt}}
+				</li>
+			</ul>
+			<p v-if="showLi == false">搜索不到</p>
+		</div>
+		<script src="./js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+			new Vue({
+				el: '#app',
+				data: {
+					list: [{
+							txt: '我是一个高富帅'
+						},
+						{
+							txt: '吃的苦中苦'
+						},
+						{
+							txt: '方为人上人'
+						}
+					],
+					showLi: [],
+				},
+				mounted() {
+					this.showLi = this.list
+				},
+				methods: {
+					myKeyup(e) {
+						this.showLi = []
+						e.target.value = e.target.value.replace(/(^\s*)|(\s*$)/g, "")
+						this.list.forEach(item => {
+							for (let key in item) {
+								let list = item[key].indexOf(e.target.value)
+								if (list != -1) this.showLi.push(item)
+							}
+						})
+						if (this.showLi.length == 0) this.showLi = false
+						if (!e.target.value) this.showLi = this.list
+					}
+				}
+			})
+		</script>
+	</body>
+</html>
